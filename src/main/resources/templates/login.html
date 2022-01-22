@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link rel="shortcut icon" th:href="@{/images/ttn.ico}" />
+
+    <title>REAP</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+
+</head>
+
+<body>
+
+<!-- NAVBAR- -->
+<div id="top">
+    <a href="#"><img th:src="@{/images/logo.png}" id="logo"></a>
+    <a href="#"><img th:src="@{/images/reap2.png}" id="logo2"></a>
+    <a th:href="@{register}"><button class="btn11">SIGN UP</button></a>
+    <a th:href="@{login}"><button class="btn1">LOGIN</button></a>
+</div>
+
+
+
+<div id="center-div">
+    <div id="div2">
+        <span class="span1">Login to your R.E.A.P. Account</span>
+    </div>
+    <form th:action="@{/logindata}" method="post" th:object="${login}">
+        <label for="uid">Username</label>
+        <input th:type="text" th:name= "uid" id="uid" placeholder="  Enter your username here" required="Username">
+
+        <label for="pswd">Password</label>
+        <input th:type="password" th:name="pswd" id="pswd" placeholder="  Enter password here" required="password">
+
+        <span id="forgotpwd"><a th:href="@{password-reset}">Forgot Password</a></span>
+            <!--<span th:unless="${session.user.active}"><script>alert("You are not an active user!!")</script></span>-->
+        <button onclick="#" class="btn1" id="btn2">Login Now</button>
+    </form>
+
+
+</div>
+
+
+<script type="text/javascript" src="reap.js"></script>
+
+</body>
+</html>

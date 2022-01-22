@@ -1,0 +1,138 @@
+body{
+    /*background-color: #CCCCFF;*/
+    /*background-color: #dcf7f5;*/
+    background-color: #f5f5f5;
+    font-size: 18px;
+    color: black;
+    margin: 0;
+}
+
+#top{
+    background-color: white;
+    width:100%;
+    height: 70px;
+    box-shadow: 5px 5px 3px #CC99FF;
+}
+
+.btn1{
+    /*background-color: #330099;*/
+    background-color: #0e5a80;
+    color: white;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 130px;
+    height: 50px;
+    /*border-radius: 10px;*/
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px #660066;
+
+}
+
+.btn11{
+    background-color: grey;
+    color: white;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 130px;
+    height: 50px;
+    /*border-radius: 10px;*/
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px #660066;
+
+}
+#btn2{
+    font-weight: normal;
+    display: inline-block;
+    margin-top: 20px;
+    float: right;
+}
+.span1{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    padding-top: 24px;
+    padding-left: 26px;
+    font-style: "courier";
+}
+
+textarea{
+    resize:none;
+}
+
+input{
+    height: 35px;
+    width: 90%;
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    /*border-radius: 9px;*/
+    box-shadow:2px 2px 5px grey;
+    background-color: white;
+    padding-left: 20px !important;
+}
+
+#logo{
+    height: 35px;
+    width: 110px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+#logo2{
+    height: 35px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+#center-div
+{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width:400px;
+    height: 430px;
+    /* background-color: #ADD8E6;*/
+    background-color: white;
+    /*border: 3px groove #ccc;*/
+    border : 2px solid #E0E0E0;
+    box-shadow: 3px 3px 4px #0e5a80;
+}
+
+form{
+    margin:40px;
+    margin-right: 20px;
+}
+
+#div2{
+    position: relative;
+    width: 99.9%;
+    height: 17%;
+    /*margin:2px;*/
+    /*background-color: #330099;*/
+    background-color: #0e5a80;
+    border-radius: 4px;
+
+}
+
+#forgotpwd{
+    display: inline-block;
+    float: left;
+    text-decoration: underline;
+    color: blue;
+    margin-top: 32px;
+}
+
+#btn3{
+    display: inline-block;
+    float: left;
+    font-weight: normal;
+    margin-top: 20px;
+}

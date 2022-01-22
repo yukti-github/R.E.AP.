@@ -1,0 +1,323 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" th:href="@{/images/ttn.ico}"/>
+    <title>REAP</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <script
+            th:src="@{//code.jquery.com/jquery-3.3.1.min.js}"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{//maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css}">
+
+    <script th:src="@{//maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js}"></script>
+    <!--<link rel="stylesheet" type="text/css" href="DashboardStyles.css">-->
+    <link rel="stylesheet" th:href="@{'/css/Dashboardstyles.css'}"/>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script th:src="@{/javascripts/badges.js}"></script>
+    <script th:src="@{/javascripts/dashboard.js}"></script>
+
+</head>
+
+<body>
+
+<!-- NAVBAR- -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav pull-left">
+                <a href="#"><img th:src="@{/images/logo.png}" id="logo"></a>
+                <a href="#"><img th:src="@{/images/reap2.png}" id="logo2"></a>
+            </ul>
+
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav dropdown">
+                <li><a th:href="@{https://newersworld.tothenew.com/myProfile}" class="active2">Back to Newers World</a></li>
+                <li><a href="#" class="active1"><img th:src="@{/images/timer.png}"> Dashboard</a></li>
+                <li><a href="#" class="active2"><img th:src="@{/images/star.png}" height="20px" width="20px"> Badges</a>
+                </li>
+                <li><a th:href="@{/logout}" class="active2"> <i class="fas fa-sign-out-alt"></i>  Sign-out</a></li>
+                <!-- 	<li><a href="#"> <img src="bell.png" height="25px" width="20px " id="bell"> </a></li> -->
+                <li><a href="#"> <img th:src="${image}"  height="45px" width="45px"> </a></li>
+            </ul>
+        </div>
+</nav>
+
+
+<div th:if="${session.user}">
+
+<div class="row" id="first">
+
+    <!-- left horizontal div -->
+    <div id="second">
+        <div class="headerdiv">
+            <span class="headerfont"><img th:src="@{/images/star.png}">  RECOGNIZE NEWER</span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <form id="form1"><!-- th:object="${badgesGiven}">-->
+
+                    <div class="col-lg-4 col-md-4">
+                        <input type="text"
+                               placeholder="Select a Newer"
+                               required="required" class="tags" id="tags1"><!--th:field="*{receiver}"-->
+
+                        <span class="select-newer" autocomplete="on">
+                                  <img th:src="@{/images/newer.png}" alt="">
+                                </span>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 " style="background-color: #0e5a80; margin-right: 30px;">
+
+                        <select class="form-control" required="required" name="star" id="badge" autocomplete="off">
+                            <!--th:field="*{star}"-->
+
+                            <option value="0" disabled selected>Choose Badge Type</option>
+                            <span th:if="${userStarCount.getGoldStarCount()}>0">
+                                    <option value="Gold"
+                                            th:text="${userStarCount.getGoldStarCount()}+' : Gold'">Gold</option>
+                                        </span>
+                            <span th:if="${userStarCount.getSilverStarCount()}>0">
+                                    <option value="Silver" th:text="${userStarCount.getSilverStarCount()}+' : Silver'">Silver</option>
+                                        </span>
+                            <span th:if="${userStarCount.getBronzeStarCount()}>0">
+                                    <option value="Bronze" th:text="${userStarCount.getBronzeStarCount()}+' : Bronze'">Bronze</option>
+                                    </span>
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-4 " style="background-color: #0e5a80; color: white;">
+
+                        <!--<select class="form-control" required="required" name="karma" id="karma" th:field="*{karma}">-->
+                        <!--<option value="" disabled>Select a Karma/Core Value</option>-->
+                        <!--<option th:value="6">Karma: Extra Miler</option>-->
+                        <!--<option th:value="3">Karma: Knowledge Sharing</option>-->
+                        <!--<option th:value="1">Karma: Mentorship</option>-->
+                        <!--<option th:value="5">Karma: Pat on the back</option>-->
+                        <!--<option th:value="7">Karma: Customer Delight</option>-->
+                        <!--<option th:value="10">Core Value: Continuous Learning and Improvement</option>-->
+                        <!--<option th:value="9">Core Value: Contribution</option>-->
+                        <!--<option th:value="13">Core Value: Diligence</option>-->
+                        <!--<option th:value="12">Core Value: Empathy</option>-->
+                        <!--<option th:value="14">Core Value: Openness to Feedback and Change</option>-->
+                        <!--<option th:value="11">Core Value: Responsible Freedom</option>-->
+                        <!--</select>-->
+                        <select class="form-control" name="karma" id="karma" >
+                            <!--th:field="${badgesGiven.karma}"-->
+                            <!--<select class="form-control" th:field="${operator.opeId}"  id="dropOperator">-->
+                            <option value="0" disabled>Select a Karma</option>
+                            <option th:each="karmalist1:${karmaList}" th:text="${karmalist1.getKarmaName()}"
+                                    th:value="${karmalist1.getKarmaValue()}"></option>
+                                <!--th:each=" karmaList : ${karmaList}" th:value="${karmaList.getKarmaName()}" th:text="${karmaList.getKarmaName()}"--></option>
+                        </select>
+
+
+                    </div>
+
+                    <div class="form-group col-lg-12 col-md-12 karma-description">
+                        <br><br>
+                        <label for="reason">Reason:</label>
+                        <textarea class="form-control" required="required" rows="5" id="reason"
+                                  placeholder="write your comments for giving badge" type="reset"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel-footer" style="height:28px">
+            <div class="form-group">
+                <button id="recognize-button" class="btn btn-primary">Recognize</button>
+            </div>
+        </div>
+
+
+        <!--<input class="btn btn-primary" type="submit" name="submit" value="Recognize" class="recognize" id="submit">-->
+
+    </div>
+
+    <!-- right horizontal div -->
+    <div id="third">
+        <div class="headerdiv">
+            <span class="headerfont"> <img th:src="@{/images/star.png}">  MY BADGES</span>
+        </div>
+
+        <center>
+            <div class="panel panel-primary" style="border:none;">
+
+                <div class="panel-body">
+                    <div class="badge-content">
+                        <div class="badge-content-left">
+                            <img th:src="${image}" th:height="220px" th:width="200px" alt="">
+                        </div>
+
+                        <div class="badge-content-right">
+                            <h4 id="mybadge"><a href="#" class="newer_board_user" data-renderedthrough="rightPanel">
+                                <span th:text="${user.firstName}"></span>
+                                <span th:text="${user.lastName}"></span>
+                            </a></h4>
+                            <strong style="color: #0e5a80;;">Stars Earned:</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span>
+                            <img th:src="@{/images/goldstar.png}" alt="">
+                            <b><span th:text="${starRecieved.getGoldStarRecieved()}"></span></b>
+                        </span>&nbsp;&nbsp;
+                            <span>
+                            <img th:src="@{/images/silverstar.png}" alt="">
+                            <b><span th:text="${starRecieved.getSilverStarRecieved()}"></span></b>
+                         </span>&nbsp;&nbsp;
+                            <span>
+                            <img th:src="@{/images/bronzestar.png}" alt="">
+                            <b><span th:text="${starRecieved.getBronzeStarRecieved()}"></span></b>
+                        </span>&nbsp;&nbsp;
+                        </div>
+                      <div>
+
+                          <div style="margin: 12px;" th:with="result=${(starRecieved.getGoldStarRecieved() * 30)+
+                          (starRecieved.getSilverStarRecieved()*20)+(starRecieved.getBronzeStarRecieved()*10)}">
+
+                              <strong style="color: #0e5a80;float: left">Points Earned:</strong>&nbsp;&nbsp;
+                              <span th:text="${result}" th:name="result" th:id="result"></span>
+                              <span id="yukti"></span>
+                          </div>
+
+
+                        <strong style="color: #0e5a80;;">Stars Remaining:</strong>&nbsp;&nbsp;
+                        <span>
+                            <img th:src="@{/images/goldstar.png}" alt="">
+                            <b><span th:text="${userStarCount.getGoldStarCount()}"></span></b>
+                        </span>&nbsp;&nbsp;
+                        <span>
+                            <img th:src="@{/images/silverstar.png}" alt="">
+                            <b><span th:text="${userStarCount.getSilverStarCount()}"></span></b>
+                         </span>&nbsp;&nbsp;
+                        <span>
+                            <img th:src="@{/images/bronzestar.png}" alt="">
+                            <b><span th:text="${userStarCount.getBronzeStarCount()}"></span></b>
+                        </span>&nbsp;&nbsp;
+                    </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </center>
+    </div>
+    <div id="second" style="height: auto">
+        <div class="headerdiv">
+            <span class="headerfont"><img th:src="@{/images/star.png}">  WALL OF FAME</span>
+
+
+            <form class="navbar-form navbar-right" action="#" style="margin-right: 10px">
+                <div class="input-group">
+                    <input type="text" class="form-control tags" placeholder="Search" name="search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="button"><span
+                        class="glyphicon glyphicon-calendar"> Filter</span>
+                </button>
+                <button class="btn btn-primary" type="button"><span
+                        class="glyphicon glyphicon-download alt" > Download</span>
+                </button>
+
+            </form>
+
+        </div>
+
+       <!--Timeline goes here.............-->
+
+
+
+
+
+
+            <div th:each="post: ${post}" class="container-fluid">
+                <div id="timeline" class="row" style="margin-top: 10px;">
+                    <div class="col-sm-2">
+                    <img
+                         th:src="@{'/images/'+${post.getReceiver().getUserName()}+'.jpeg'}"
+                         height="80px" width="80px" style="border-radius: 50%; margin-left: 25px">
+                    </div>
+                    <div class="col-sm-10" style="padding-top: 20px;">
+
+                    <strong th:text="${post.getReceiver().getFirstName()}"></strong>
+                    <strong th:text="${post.getReceiver().getLastName()}"></strong> has received a
+                    <span th:if="${post.getStar().getId()}==1">
+                                        <img th:src="@{/images/goldstar.png}">
+                                    </span>
+                    <span th:if="${post.getStar().getId()}==2">
+                                        <img th:src="@{images/silverstar.png}">
+                                    </span>
+                    <span th:if="${post.getStar().getId()}==3">
+                                        <img th:src="@{images/bronzestar.png}">
+                                    </span>
+
+                    badge from <strong th:text="${post.getGiver().getFirstName()}">
+                </strong> <strong th:text="${post.getGiver().getLastName()}">
+                </strong> for
+                    <strong>Reason : </strong><span th:text="${post.getComment()}"></span>, and also for
+                        <strong>Karma : </strong><span th:text="${post.getKarma().getKarmaName()}"></span>
+                    </div>
+
+                    <!--<i th:text="${post.getElapsedTime()}"></i><span>ago</span>-->
+
+                </div><hr id="breakline">
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+<div th:unless="${session.user}">
+    <script>
+        alert("User is not logged in!!");
+        window.location = "http://localhost:8080/login";
+    </script>
+
+</div>
+<!--  <script type="text/javascript" src="reap.js"></script>
+-->
+</body>
+</html>
